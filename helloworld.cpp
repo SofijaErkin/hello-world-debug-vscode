@@ -13,5 +13,17 @@ int main()
         cout << word << " ";
     }
     cout << endl;
+    
+    std::cout << "１人が意識不明か　兵庫・氷ノ山で男性５人遭難!" << std::endl;
+    
+    int i=0;
+    while(i<10)
+    {
+        cout<<"見てる？天気予報!\n";
+        i++;
+    }
+    cout<<endl;
+    
+    return 0;
 
 }

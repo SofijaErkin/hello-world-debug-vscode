@@ -13,7 +13,7 @@ int main()
         cout << word << " ";
     }
     cout << endl;
-
+    
     std::cout << "１人が意識不明か　兵庫・氷ノ山で男性５人遭難!" << std::endl;
 
     int i=0;
@@ -22,4 +22,5 @@ int main()
     cout<<endl;
 
     return 0;
+aab4aa47eb3a0723f63427daed1a7bcfca5b6e5b
 }

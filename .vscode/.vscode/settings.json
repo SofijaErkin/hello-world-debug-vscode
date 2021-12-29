@@ -16,6 +16,11 @@
     // but it cannot be input in the "output column".
     "code-runner.executorMap": {
         // "javascript": "node",
+        // "ruby": "ruby",
+        // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        // "go": "go run",
+        // "r": "Rscript",
+        //"python": "python -u",
         // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -std=c11 && $dir$fileNameWithoutExt",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -std=c++11 && $dir$fileNameWithoutExt"

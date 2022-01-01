@@ -1,0 +1,32 @@
+{
+    // Small tips:
+    // If there are unclear tags in the json configuration file of vscode, be 
+    // sure to hover the mouse on it and take a look at the instructions. The 
+    // others are the same.
+    "configurations": [
+        {
+            "name": "Mac",
+            "defines": [],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks",
+                "${workspaceFolder}/**"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            // "IncludePath": additional header file path that needs to be 
+            // added later
+            // "CompilerPath": The file path where the compiler is located
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}

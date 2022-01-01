@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // launch.json is used to use the debug tool that comes with vscode
+    "version": "0.2.0",
+    "configurations": [
+        {
+            //"type": "cppdbg",
+            "type": "lldb",
+            "request": "launch",
+            "name": "cppdbg",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            // It needs to correspond to the task to be configured later, that 
+            // is, the program that you intend to run. Need to be set to the 
+            // binary program directory instead of the source code file.
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            // "externalConsole":
+            // if false，incoke VS Code built-in terminal;
+            // if true, invoke the built-in terminal of Mac.
+            // "MIMode": "lldb",
+            // Set to true to run the program in an external terminal (included 
+            // with macOS). If this option is set to false, it will run in the 
+            // built-in terminal and cannot enter data (there should be a 
+            // solution, but I haven’t found it yet)
+            "preLaunchTask": "build c++",
+            // preLaunchTask: manually added parameters, a task we will edit
+            // by ourselves later, its function is to compile the current file
+            // into an executable file.
+            "logging": {
+                //   "engineLogging": true,
+                "trace": true,
+                "traceResponse": true,
+            }
+            //Need to open the log to troubleshoot the problem
+        }
+    ]
+    // This running task means to first run a Build with Clang task to get the 
+    // executable file, and then run and debug the file.
+}

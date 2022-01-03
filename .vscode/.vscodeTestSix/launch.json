@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to understand related attributes.
+    // Hover to see descriptions of existing properties.
+    // For more information, please visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

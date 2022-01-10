@@ -1,0 +1,143 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    //
+    // launch.json file to configure VS Code to launch the LLDB debugger when 
+    // you press F5 to debug the program.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // The configuration name will be displayed in the debug 
+            // configuration drop-down list
+            "name": "clang++ - Build and debug active file",
+            //
+            // Debugger type: Windows display uses cppvsdbg; 
+            // GDB and LLDB use cppdbg. The value is automatically generated
+            // type: Indicates the underlying debugger being used. It must be 
+            // "cppvsdbg" when using the Visual Studio Windows debugger, and 
+            // "cppdbg" when using GDB or LLDB.
+            // "type": "cppdbg",
+            "type": "lldb",
+            // "type": "lldb", error
+            // 
+            // Debugging method
+            // VSCode provides two debugging methods: Launch and Attach
+            // Therefore, in the automatically generated configuration file, 
+            // there are both methods.
+            // What kind of configuration the user needs can be, of course, it 
+            // can be configured well.
+            "request": "launch",
+            //
+            // The program to be debugged (full path, relative path is supported)
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            // The program setting specifies the program you want to debug. 
+            // Here it is set to the active file folder ${fileDirname} 
+            // and active filename ${fileBasenameNoExtension}
+            // which if myhelloworld.cpp is the active file will be myhelloworld.
+            //
+            // A file located at /Users/yq/VSCode/myhelloworld/myhelloworld.cpp
+            //  opened in your editor;
+            // 
+            // The directory /Users/yq/VSCode opened as your root workspace.
+            // 
+            // ${fileDirname} - the current opened file's dirname
+            // ${fileDirname} - /Users/yq/VSCode/myhelloworld
+            // 
+            // ${fileBasenameNoExtension} - the current opened file's basename 
+            // with no file extension
+            // 
+            // ${fileBasenameNoExtension}  - myhelloworld
+            //
+            // "console": "integratedTerminal",
+            //
+            // The parameters passed to the above program, no parameters can be 
+            // left blank
+            // Command line parameters passed to the program during program 
+            // debugging, generally set to empty
+            "args": [],
+            //
+            // Whether to stop at the entry point of the program (stop at the 
+            // beginning of the main function)
+            // When set to true, the program will pause at the program entry, 
+            // which is equivalent to breaking the point on main
+            "stopAtEntry": false,
+            // "stopAtEntry": true,
+            // By default, the C++ extension won't add any breakpoints to your 
+            // source code and the stopAtEntry value is set to false.
+            // Change the stopAtEntry value to true to cause the debugger to 
+            // stop on the main method when you start debugging.
+            //
+            // Working directory when debugging the program
+            // The working directory when debugging the program, this is the 
+            // working area folder; change to ${fileDirname} to change to the 
+            // directory where the file is located
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            // 
+            // "externalConsole":
+            // Whether to display the console window when debugging
+            // if false，incoke VS Code built-in terminal;
+            // if true, invoke the built-in terminal of Mac.
+            // "externalConsole": false,
+            "externalConsole": true,
+            // 
+            // The following are the parameters that need to be configured 
+            // under the Mac platform, don't care about it here for the 
+            // time being
+            //
+            // Custom GDB or LLDB
+            // Indicates the debugger that VS Code will connect to.
+            // "MIMode": "lldb",
+            //
+            /*"osx": {
+                // Indicates the debugger that VS Code will connect to.
+                "MIMode": "lldb"
+                //
+            },*/
+            //
+            // miDebuggerPath: The path of the debugger (must be the full 
+            // path). When not specified, it will search the PATH variable 
+            // of the operating system to find the debugger (GDB on Linux 
+            // and Windows, LLDB on OS X).
+            // 
+            "preLaunchTask": "clang++ build active file"
+            // Ensure that the "preLaunchTask" value matches the "label" of the 
+            // build task in the tasks.json file.
+            // preLaunchTask: manually added parameters, a task we will edit
+            // by ourselves later, its function is to compile the current file
+            // into an executable file.
+            //
+            // Debug dump files
+            // C/C++ extension can debug dump files on Windows and core dump 
+            // files on Linux and OS X
+            // dumpPath: If you want to debug dump files of Windows, please set
+            // it to the path of dump files to start debugging in the startup 
+            // configuration.
+            // coreDumpPath: Specify the full path of core dump files for 
+            // program debugging. Set it to the path of the core dump file to 
+            // start debugging in the startup configuration.
+            // 
+            // Use the local debugger server for remote or local debugging
+            // miDebuggerServerAddress: The network address (for example: 
+            // localhost:1234) of the debugger server (for example, gdbserver) 
+            // to be connected for remote debugging.
+            // debugServerPath: The full path of the debug server startup.
+            // debugServerArgs: The parameters of the debugger server.
+            // serverStarted: Server-started pattern to look for in the debug 
+            // server output.
+            // serverLaunchTimeout: The time (in milliseconds) that the debugger 
+            // waits for debugServer to start. The default value is 10000.
+        } /*,
+        {
+            "name": "C++ Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "processId": "${command:pickProcess}",
+            "oxs": {
+                "MIMode": "lldb"
+            }
+        }*/
+    ]
+}

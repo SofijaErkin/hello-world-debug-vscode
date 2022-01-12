@@ -1,4 +1,4 @@
-# Debug C++ in VSCode on mac
+# Debug Problems C++ in VSCode on mac
 ##  Workspace envirnment
 ### Platform
 #### Laptop: macOS 10.12

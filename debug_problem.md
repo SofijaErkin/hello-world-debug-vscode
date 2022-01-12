@@ -49,7 +49,7 @@ succecc
 ##### Run status:
 succecc
 ##### Debug status:
-Debugger adapter abnormally terminates
+Oops! The debug adapter has terminated abnormally.
 ###### debugging control panel status:
 debugging control panel frensh exit
 debugging control panel display period for a moment:

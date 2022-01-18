@@ -1,0 +1,147 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	//
+	// Using Clang in Visual Studio Code:
+	// https://code.visualstudio.com/docs/cpp/config-clang-mac
+	//
+	// This task will invoke the Clang C++ compiler to create an executable 
+	// file from the source code.
+	//
+	// Variables Reference:
+	// https://code.visualstudio.com/docs/editor/variables-reference
+	//
+	"version": "2.0.0",
+	"tasks": [
+		{
+			// Process is that vsc passes all the predefined variables and 
+			// escapes directly to the command after parsing; the shell is 
+			// equivalent to opening the shell and then entering the command, 
+			// so args will be parsed through the shell again
+			"type": "shell",
+			//
+			// The label value is what you will see in the tasks list. 
+			// Name this whatever you like.
+			// same as the "preLaunchTask" in launch.json
+			"label": "clang++ build active file",
+			// 
+			// The command setting specifies the program to run.
+			// "clang++" is the driver that causes the Clang compiler to expect
+			// C++ code and link against the C++ standard library.
+			// Command: g++ to compile C++, gcc to compile C
+			// Command: clang++ to compile C++, clang to compile C
+			// "command": "g++",
+			"command": "/usr/bin/clang++",
+			// 
+			"args": [
+				"${file}",
+				"-std=c++11",
+				"-stdlib=libc++",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"-g"
+				//  Generate debugging information, GUN can use this parameter
+				// "-debug"
+			],
+			// "args" is updated to compile with C++11 because my
+			// myhelloworld.cpp uses C++11 language features.
+			//
+			// ${file} - the current opened file
+			// A file located at /Users/marryme/VSCode/myhelloworld/
+			// myhelloworld.cpp opened in my editor;
+			// The directory /Users/marryme/VSCode opened as your root workspace.
+			//
+			// ${file} - /Users/marryme/VSCode/myhelloworld/myhelloworld.cpp
+			//
+			// ${fileDirname} - the current opened file's dirname
+			// ${fileDirname} - /Users/marryme/VSCode/myhelloworld
+			// 
+			// ${fileBasenameNoExtension} - the current opened file's basename 
+			// with no file extension
+			// ${fileBasenameNoExtension} - myhelloworld
+			//
+			// The args array specifies the command-line arguments that will be 
+			// passed to clang++.
+			// 
+			// This task tells the C++ compiler to compile the active file (${/Users/marryme/VSCode/myhelloworld/myhelloworld.cpp}),
+			// and create an output file (-o switch) in the current directory (${/Users/marryme/VSCode/myhelloworld}) 
+			// with the same name as the active file (${myhelloworld}), 
+			// resulting in myhelloworld.
+			"options": {
+				"cwd": "${workspaceFolder}"
+				// Changes the current working directory directive
+				// ("cwd") to the folder where myhelloworld.cpp is.
+				// ${workspaceFolder} - the path of the folder opened in VS Code
+				// ${workspaceFolder} - /Users/marryme/VSCode
+			},
+			// The problemMatcher value selects the output parser to use for 
+			// finding errors and warnings in the compiler output. 
+			// For clang++, you'll get the best results if you use the $gcc 
+			// problem matcher.
+			/*"problemMatcher": [
+				"$gcc"
+			],*/
+			// 
+			"group": {
+				"kind": "build",
+				"isDefault": true
+				// The "isDefault": true value in the group object specifies that 
+				// this task will be run when you press ⇧⌘B. This property is for 
+				// convenience only; 
+				// if you set it to false, you can still build from the Terminal 
+				// menu with Terminal > Run Build Task.
+			},
+			/*"presentation": {
+				"echo": true,
+				// echo: Controls whether the executed command is echoed in 
+				// the terminal. Default is true.
+				"reveal": "always",
+				// https://code.visualstudio.com/docs/editor/tasks#vscode
+				// reveal: Controls whether the Integrated Terminal panel is 
+				// brought to front. Valid values are: 
+				// always - The panel is always brought to front. This is the 
+				// default.
+				// never - The user must explicitly bring the terminal panel to 
+				// the front using the View > Terminal command (⌃`).
+				// silent - The terminal panel is brought to front only if the 
+				// output is not scanned for errors and warnings.
+				"focus": false,
+				/// focus: Controls whether the terminal is taking input focus 
+				// or not. Default is false.
+				"panel": "shared",
+				// panel: Controls whether the terminal instance is shared 
+				// between task runs. Possible values are: 
+				// shared - The terminal is shared and the output of other task 
+				// runs are added to the same terminal.
+				// dedicated - The terminal is dedicated to a specific task.
+				//  If that task is executed again, the terminal is reused. 
+				// However, the output of a different task is presented in a 
+				// different terminal.
+				// new - Every execution of that task is using a new clean 
+				// terminal.
+				"showReuseMessage": true,
+				// showReuseMessage: Controls whether to show the "Terminal 
+				// will be reused by tasks, press any key to close it" message.
+				"clear": false
+				// clear: Controls whether the terminal is cleared before this 
+				// task is run. Default is false.
+			}*/
+			// presentation: Defines how the task output is handled in the user
+			// interface. 
+			// In this example, the Integrated Terminal showing the output is 
+			// always "revealed" and a new terminal is created on every task 
+			// run.
+		}
+	]
+	// Modifying tasks.json:
+	// You can modify your tasks.json to build multiple C++ files by using an 
+	// argument like "${/Users/marryme/VSCode}/*.cpp"  instead of 
+	// ${/Users/marryme/VSCode/myhelloworld/myhelloworld.cpp}. 
+	// This will build all .cpp files in your current folder. 
+	// your current folder: ${fileWorkspaceFolder} 
+	// ${fileWorkspaceFolder} - the current opened file's workspace folder
+	// ${fileWorkspaceFolder} - /Users/marryme/VSCode
+	// You can also modify the output filename by replacing 
+	// ${workspaceFolder} - the path of the folder opened in VS Code
+	// ${workspaceFolder} - /Users/marryme/VSCode
+}

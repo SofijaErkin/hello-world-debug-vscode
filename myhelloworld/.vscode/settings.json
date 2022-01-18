@@ -1,0 +1,172 @@
+// User and Workspace Settings:
+// https://code.visualstudio.com/docs/getstarted/settings
+// 
+// 
+// This is for Workspace Settings
+// 
+// Here is the list of settings not supported in workspace settings:
+//
+// git.path
+// terminal.external.windowsExec
+// terminal.external.osxExec
+// terminal.external.linuxExec
+//
+// Default settings:
+// https://code.visualstudio.com/docs/getstarted/settings#_default-settings
+{
+    // The default language mode that is assigned to new files. If configured 
+    // to `${activeEditorLanguage}`, will use the language mode of the 
+    // currently active text editor if any.
+    "files.defaultLanguage": "c++",
+    //
+    // "editor.suggest.snippetsPreventQuickSuggestions":
+    // Controls whether an active snippet prevents quick suggestions.
+    // Enter a semicolon (recognized at the end of a C/C++ statement) and
+    // automatically format to the current line of code.
+    // clangd's snippets have many jump points. If you don't need this, you 
+    // must manually trigger Intellisense
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    //
+    // "editor.acceptSuggestionOnEnter":
+    // Controls whether suggestions should be accepted on `Enter`, in addition
+    //  to `Tab`. Helps to avoid ambiguity between inserting new lines or 
+    // accepting suggestions.
+    // "on" == Carriage return automatic completion;
+    // "off" == tab auto-completion;
+    // "top" == (Optional) Snippets are displayed at the top of the completion
+    // list, The default is inline.
+    // My personal habit, when pressing enter, it must be a real line feed, 
+    // only tab will accept Intellisense
+    "editor.acceptSuggestionOnEnter": "off",
+    // 
+    // "code-runner.runInTerminal":
+    // Whether to run code in Integrated Terminal.
+    // If set to false, it will be output in the "output column";
+    // but it cannot be input in the "output column".
+    "code-runner.runInTerminal": true,
+    // 
+    // Set the executor of each language.
+    "code-runner.executorMap": {
+        // "javascript": "node",
+        // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        // A file located at /Users/yq/VSCode/myhelloworld/myhelloworld.cpp 
+        // opened in your editor;
+        // The directory /Users/yq/VSCode opened as your root workspace.
+        // $fileName: ${fileBasename} - the current opened file's basename
+        // $fileName: myhelloworld.cpp 
+        // $fileNameWithoutExt: ${fileBasenameNoExtension} - the current opened 
+        // file's basename with no file extension
+        // $fileNameWithoutExt: myhelloworld
+        // $dir$fileNameWithoutExt: the current opened file's basename
+        // under the folder opened in VS Code without any slashes (/)
+        // with no file extension
+        "c": "cd $dir && gcc $fileName  -std=c11 -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -std=c++11 -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    },
+    // "code-runner.executorMap":
+    // "javascript": "node",
+    // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    // "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    // "php": "php",
+    // "python": "python -u",
+    // "perl": "perl",
+    // "perl6": "perl6",
+    // "ruby": "ruby",
+    // "ruby": "ruby",
+    // "go": "go run",
+    // "lua": "lua",
+    // "groovy": "groovy",
+    //  "powershell": "powershell -ExecutionPolicy ByPass -File",
+    //  "bat": "cmd /c",
+    //   "shellscript": "bash",
+    //  "fsharp": "fsi",
+    //  "csharp": "scriptcs",
+    //  "vbscript": "cscript //Nologo",
+    //  "typescript": "ts-node",
+    //  "coffeescript": "coffee",
+    //  "scala": "scala",
+    //  "swift": "swift",
+    //  "julia": "julia",
+    //  "crystal": "crystal",
+    //   "ocaml": "ocaml",
+    //  "r": "Rscript",
+    //  "applescript": "osascript",
+    //  "clojure": "lein exec",
+    //  "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    //  "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    //  "racket": "racket",
+    //  "scheme": "csi -script",
+    //  "ahk": "autohotkey",
+    //  "autoit": "autoit3",
+    //  "dart": "dart",
+    //  "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    //  "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    //  "haskell": "runhaskell",
+    //  "nim": "nim compile --verbosity:0 --hints:off --run",
+    //  "lisp": "sbcl --script",
+    //  "kit": "kitc --run",
+    //  "v": "v run",
+    //  "sass": "sass --style expanded",
+    //  "scss": "scss --style expanded",
+    //  "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    //  "FortranFreeForm":
+    // "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    //  "fortran-modern":
+    // "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    //   "fortran_fixed-form":
+    // "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    //  "fortran":
+    // "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    // 
+    //
+    //
+    // "code-runner.saveFileBeforeRun":
+    // Whether to save the current file before running.
+    // false, run before not saving;
+    // true, run before saving.
+    "code-runner.saveFileBeforeRun": true,
+    //
+    // "code-runner.preserveFocus":
+    // Whether to preserve focus on code editor after code run is triggered.
+    // true,;
+    // false, The cursor will be gathered on the terminal after running code,
+    // Need to enter data frequently.
+    "code-runner.preserveFocus": false,
+    //
+    // "code-runner.clearPreviousOutput":
+    // Whether to clear previous output before each run.
+    //
+    // false, Clear the terminal belonging to the code runner before each
+    // running code, default;
+    "code-runner.clearPreviousOutput": false,
+    //
+    // "code-runner.ignoreSelection":
+    // Whether to ignore selection to always run entire file.
+    //
+    // false,after the mouse selects a piece of code, it can be executed
+    // separately, C language is a compiler language, not used.
+    "code-runner.ignoreSelection": true,
+    // 
+    // If set, overrides the include sorting behavior determined by the 
+    // `SortIncludes` parameter.
+    // Adjust the order of include during formatting (in alphabetical order)
+    // The default is false, the effect is that the mouse can select a piece of
+    // code and it can be executed separately, but C/C++ is a compiled 
+    // language, which is not suitable for this use
+    "C_Cpp.clang_format_sortIncludes": true,
+    "clang.cxxflags": [
+        "-std=c++11"
+    ],
+    "clang.cflags": [
+        "-std=c11"
+    ],
+    //
+    // "editor.formatOnType":
+    // Controls whether the editor should automatically format the line after typing.
+    // true, Formatting adjusted to the order of include (in alphabetical
+    // order)
+    //
+    // After entering a semicolon (the end of C/C++ statement), the current 
+    // line of code is automatically formatted
+    "editor.formatOnType": true
+}

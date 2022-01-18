@@ -1,0 +1,58 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "build",
+			// "command": "clang++",
+			"command": "clang++",
+			/*"args": [
+				"-fdiagnostics-color=always",
+				"-o",
+				"main",
+				//"${file}", // execute file name
+				"main.cpp",
+				// "${fileDirname}/${fileBasenameNoExtension}"
+				// source file to be executed
+				"-g",
+				"-v"
+			],*/
+			"args": [
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"-g"
+			],
+			// "options": {
+			//	"cwd": "${fileDirname}"
+			//},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"panel": "shared"
+			},
+			// "problemMatcher": [
+			// 	"$gcc"
+			//"owner": "cpp",
+			/*"fileLocation": [
+					"relative",
+					"${workspaceRoot}"
+				],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}*/
+			// ],
+			// "group": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+			// "detail": "compiler: /usr/bin/clang"
+		}
+	]
+}

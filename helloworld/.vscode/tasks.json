@@ -1,0 +1,61 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type":"shell",
+			"label": "C/C++: clang++ build active file",
+			// label is the value you will see in the task list and can be 
+			// named arbitrarily
+			"command": "/usr/bin/clang++",
+			// The command setting specifies the program to be run.
+			// "clang++" is the driver that causes the Clang compiler to expect
+			// C++ code and link to the C++ standard library. 
+			"args": [
+				"-std=c++11", // add, To Support C++11
+				"-stdlib=libc++", // add
+				// "-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			// The args array specifies the command line parameters that will 
+			// be passed to clang++.
+			// These parameters must be specified in the order expected by the 
+			// compiler. 
+			// This task requires the C++ compiler to compile active files 
+			// (${file}),
+			// And create an output file (-o) with the same name as the active 
+			// file (${fileBasenameNoExtension}) in the current directory 
+			// (${fileDirname}).
+			// To build multiple C++ source files, you can replace ${file} with 
+			// "${workspaceFolder}/*cpp"
+			// The output "${fileDirname}/${fileBasenameNoExtension}" can also 
+			// be directly hardcoded, for example, to 
+			// "${workspaceFolder}/myProgram.out"
+			"options": {
+				// "cwd": "${fileDirname}"
+				"cwd": "${workspaceFolder}"
+			},
+			/*"problemMatcher": [
+				"$gcc"
+			],*/
+			// problemMatcher selects the output parser to find errors and 
+			// warnings in the compiler output.
+			// For clang++, using the $gcc problem matcher will get the best 
+			// results. 
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			// "IsDefault": true in the group object specifies that you press
+			// ⇧⌘B to run the task.
+			// This item is just for convenience, you can also build via 
+			// Terminal->Run Build Task. 
+			"detail": "compiler: /usr/bin/clang++"
+			//
+			// More configuration (command) parameters:
+			// https://code.visualstudio.com/docs/editor/variables-reference
+		}
+	]
+}

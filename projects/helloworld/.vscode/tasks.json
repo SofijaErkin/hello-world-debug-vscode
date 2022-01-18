@@ -1,0 +1,58 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	// tasks.json configures C++ compilation
+	// In this file, we configure a task named Build with Clang to compile the 
+	// file to the corresponding file in the folder under the working directory
+	// (you can also configure the build directory by yourself, but it needs to 
+	// correspond to the launch.json above.)
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build c++",
+			// The name of this task is configured in the last configuration of 
+			// launch.json
+			// label: task name, corresponding to launch.json
+			"type": "shell",
+			"command": "clang++",
+			// Command: g++ to compile C++, gcc to compile C
+			// Command: clang++ to compile C++, clang to compile C
+			"args": [
+				"-std=c++11",
+				// args: the command line operating parameters. I am using the 
+				// C11 standard here.
+				"-stdlib=libc++",
+				"-g",
+				// Generate debugging information, GUN can use this parameter
+				"-Wall",
+				"${file}",
+				// file refers to the file being opened
+				"-o",
+				// Generate executable file
+				"${fileDirname}/${fileBasenameNoExtension}"
+				// Is the output directory
+				// fileDirname refers to the folder where the file is being opened
+				// fileBasenammeNoExtension refers to files without extensions, 
+				// executable files in unix belong to this category
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			/*"problemMatcher": [
+				"$gcc"
+			],*/
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false,
+				"reveal": "silent"
+			}
+		}
+	]
+}
